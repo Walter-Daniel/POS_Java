@@ -1,1 +1,13 @@
+View\PrincipalMenu$1.class
+Model\ModelCustomer.class
+Model\ModelProduct.class
+View\FormSales.class
+View\FormFindInvoice.class
+Config\CConnection.class
 dev\purple\mypos\MyPOS.class
+View\formProduct.class
+View\PrincipalMenu$3.class
+View\formCustomers.class
+View\PrincipalMenu.class
+View\FormInvoiceDate.class
+View\PrincipalMenu$2.class
