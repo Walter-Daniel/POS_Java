@@ -59,6 +59,10 @@ public class formCustomers extends javax.swing.JInternalFrame {
         btnUpdateCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Admin. Clientes");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
 
         jLabel1.setText("Id:");
@@ -174,7 +178,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Cliente"));
 
         jLabel6.setText("Id:");
 
@@ -268,7 +272,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
                             .addComponent(btnSaveCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(96, 96, 96)
                             .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap()))
         );

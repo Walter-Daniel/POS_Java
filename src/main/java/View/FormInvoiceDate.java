@@ -37,6 +37,10 @@ public class FormInvoiceDate extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Buscar por Fechas");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consulta por Fecha de Venta"));
 
         jLabel1.setText("Desde");
@@ -69,9 +73,9 @@ public class FormInvoiceDate extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(txtFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(btnSearch))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1))
                     .addComponent(txtTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );

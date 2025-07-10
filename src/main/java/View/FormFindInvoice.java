@@ -48,6 +48,10 @@ public class FormFindInvoice extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Buscar Facturas");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Número de Factura"));
 
         btnSearch.setText("Buscar");

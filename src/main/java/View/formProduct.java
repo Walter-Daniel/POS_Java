@@ -43,6 +43,11 @@ public class formProduct extends javax.swing.JInternalFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Admin. Productos");
+        setToolTipText("");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
 
         jLabel1.setText("Id:");
