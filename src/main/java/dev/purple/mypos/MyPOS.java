@@ -8,5 +8,6 @@ public class MyPOS {
         
         View.PrincipalMenu principalMenu = new View.PrincipalMenu();
         principalMenu.setVisible(true);
+        principalMenu.setLocationRelativeTo(null);
     }
 }

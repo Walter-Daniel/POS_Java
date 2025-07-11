@@ -61,7 +61,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Admin. Clientes");
+        setTitle("Clientes");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
 

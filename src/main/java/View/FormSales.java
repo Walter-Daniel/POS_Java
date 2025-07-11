@@ -115,7 +115,7 @@ public class FormSales extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Ventas");
+        setTitle("Realizar  Venta");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Clientes Disponibles"));
 
