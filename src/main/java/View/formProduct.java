@@ -45,7 +45,7 @@ public class formProduct extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Admin. Productos");
+        setTitle("Productos");
         setToolTipText("");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Productos"));
