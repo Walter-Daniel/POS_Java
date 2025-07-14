@@ -1,9 +1,8 @@
 View\PrincipalMenu$1.class
 View\PrincipalMenu$7.class
-Model\ModelCustomer.class
 View\PrincipalMenu$10.class
+Model\CustomerModel.class
 View\PrincipalMenu$9.class
-Model\ModelProduct.class
 View\FormSales.class
 View\PrincipalMenu$8.class
 View\FormFindInvoice.class
@@ -12,6 +11,8 @@ View\PrincipalMenu$4.class
 Config\CConnection.class
 dev\purple\mypos\MyPOS.class
 View\formProduct.class
+Controller\CustomerController.class
+Model\ProductModel.class
 View\PrincipalMenu$3.class
 View\formCustomers.class
 View\PrincipalMenu$5.class
