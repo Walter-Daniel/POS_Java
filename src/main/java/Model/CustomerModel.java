@@ -1,17 +1,17 @@
 package Model;
 
 
-public class ModelCustomer {
+public class CustomerModel {
     
     private int IdCustomer;
     private String firstName;
     private String lastName;
     private String DNI;
 
-    public ModelCustomer() {
+    public CustomerModel() {
     }
     
-    public ModelCustomer(int IdCustomer, String firstName, String lastName, String DNI) {
+    public CustomerModel(int IdCustomer, String firstName, String lastName, String DNI) {
         this.IdCustomer = IdCustomer;
         this.firstName = firstName;
         this.lastName = lastName;

@@ -15,6 +15,8 @@ public class formCustomers extends javax.swing.JInternalFrame {
      */
     public formCustomers() {
         initComponents();
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.showCustomers(tbCustomers);
     }
 
     /**
