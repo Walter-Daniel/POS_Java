@@ -249,6 +249,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tbCustomers);
 
         btnSaveCustomer.setText("Guardar");
+        btnSaveCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCustomerActionPerformed(evt);
+            }
+        });
 
         btnUpdateCustomer.setText("Modificar");
 
@@ -302,6 +307,12 @@ public class formCustomers extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCustomerActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.addCustomer(txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+        customer.showCustomers(tbCustomers);
+    }//GEN-LAST:event_btnSaveCustomerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
