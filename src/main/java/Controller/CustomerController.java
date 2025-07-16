@@ -82,4 +82,49 @@ public class CustomerController {
             connection.disconnect();
         }
     }
+    
+    // select customer
+    
+    public void selectCustomer(JTable totalCustomer, JTextField id, JTextField firstName, JTextField lastName, JTextField dni){
+        int row = totalCustomer.getSelectedRow();
+        try{
+            if(row >= 0){
+                id.setText(totalCustomer.getValueAt(row, 0).toString());
+                firstName.setText(totalCustomer.getValueAt(row, 1).toString());
+                lastName.setText(totalCustomer.getValueAt(row, 2).toString());
+                dni.setText(totalCustomer.getValueAt(row, 3).toString());
+
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+        }
+    }
+    
+    // update customer
+    
+    public void updateCustomer(JTextField id, JTextField firstName, JTextField lastName, JTextField dni){
+        Config.CConnection connection = new Config.CConnection();
+        Model.CustomerModel customer = new Model.CustomerModel();
+        String sql = "UPDATE customer SET customer.firstName=?, customer.lastName=?, customer.dni=? WHERE customer.idCustomer=?";
+        
+        try {
+            customer.setIdCustomer(Integer.parseInt(id.getText()));
+            customer.setFirstName(firstName.getText());
+            customer.setLastName(lastName.getText());
+            customer.setDNI(dni.getText());
+            
+            CallableStatement cs = connection.connection().prepareCall(sql);
+            cs.setString(1, customer.getFirstName());
+            cs.setString(2, customer.getLastName());
+            cs.setString(3, customer.getDNI());
+            cs.setInt(4, customer.getIdCustomer());
+
+            cs.execute();
+            JOptionPane.showMessageDialog(null, "El cliente se ha modificado con éxito!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar cliente: " + e.toString());
+        } finally {
+            connection.disconnect();
+        }
+    }
 }
