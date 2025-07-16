@@ -246,6 +246,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbCustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbCustomersMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbCustomers);
 
         btnSaveCustomer.setText("Guardar");
@@ -256,6 +261,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         });
 
         btnUpdateCustomer.setText("Modificar");
+        btnUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateCustomerActionPerformed(evt);
+            }
+        });
 
         btnDeleteCustomer.setText("Eliminar");
 
@@ -313,6 +323,17 @@ public class formCustomers extends javax.swing.JInternalFrame {
         customer.addCustomer(txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
         customer.showCustomers(tbCustomers);
     }//GEN-LAST:event_btnSaveCustomerActionPerformed
+
+    private void tbCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomersMouseClicked
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.selectCustomer(tbCustomers, txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+    }//GEN-LAST:event_tbCustomersMouseClicked
+
+    private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.updateCustomer(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+        customer.showCustomers(tbCustomers);
+    }//GEN-LAST:event_btnUpdateCustomerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
