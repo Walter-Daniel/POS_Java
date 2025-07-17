@@ -127,4 +127,16 @@ public class CustomerController {
             connection.disconnect();
         }
     }
+    
+    // CLEAN FIELDS
+    
+    public void cleanFields(JTextField id, JTextField firstName, JTextField lastName, JTextField dni) {
+        
+        id.setText("");
+        firstName.setText("");
+        lastName.setText("");
+        dni.setText("");
+        
+    }
+    
 }

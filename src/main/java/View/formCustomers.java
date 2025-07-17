@@ -1,22 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package View;
 
-/**
- *
- * @author walle
- */
 public class formCustomers extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form formCustomers
-     */
     public formCustomers() {
         initComponents();
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.showCustomers(tbCustomers);
+        txtIdCustomer.setEnabled(false);
     }
 
     /**
@@ -322,6 +312,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.addCustomer(txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
         customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
     }//GEN-LAST:event_btnSaveCustomerActionPerformed
 
     private void tbCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomersMouseClicked
@@ -333,6 +324,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.updateCustomer(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
         customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
     }//GEN-LAST:event_btnUpdateCustomerActionPerformed
 
 
