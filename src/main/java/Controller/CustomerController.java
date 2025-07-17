@@ -127,4 +127,36 @@ public class CustomerController {
             connection.disconnect();
         }
     }
+    
+    // CLEAN FIELDS
+    
+    public void cleanFields(JTextField id, JTextField firstName, JTextField lastName, JTextField dni) {
+        
+        id.setText("");
+        firstName.setText("");
+        lastName.setText("");
+        dni.setText("");
+        
+    }
+    
+    // DELETE CUSTOMER
+    
+    public void deleteCustomer(JTextField id){
+        Config.CConnection connection = new Config.CConnection();
+        Model.CustomerModel customer = new Model.CustomerModel();
+        String sql = "DELETE FROM customer WHERE customer.idCustomer=?";
+        
+        try {
+            customer.setIdCustomer(Integer.parseInt(id.getText()));
+            CallableStatement cs = connection.connection().prepareCall(sql);
+            cs.setInt(1, customer.getIdCustomer());
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Se ha eliminado cliente con éxito!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se produjo un error al intentar eliminar cliente: " + e.toString());
+        } finally {
+            connection.disconnect();
+        }
+    }
 }

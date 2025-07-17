@@ -1,22 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package View;
 
-/**
- *
- * @author walle
- */
 public class formCustomers extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form formCustomers
-     */
     public formCustomers() {
         initComponents();
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.showCustomers(tbCustomers);
+        txtIdCustomer.setEnabled(false);
     }
 
     /**
@@ -191,6 +181,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         jLabel9.setText("DNI:");
 
         btnClean1.setText("Limpiar Campos");
+        btnClean1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClean1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -268,6 +263,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         });
 
         btnDeleteCustomer.setText("Eliminar");
+        btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCustomerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -322,6 +322,7 @@ public class formCustomers extends javax.swing.JInternalFrame {
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.addCustomer(txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
         customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
     }//GEN-LAST:event_btnSaveCustomerActionPerformed
 
     private void tbCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomersMouseClicked
@@ -333,7 +334,20 @@ public class formCustomers extends javax.swing.JInternalFrame {
         Controller.CustomerController customer = new Controller.CustomerController();
         customer.updateCustomer(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
         customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
     }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+
+    private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.deleteCustomer(txtIdCustomer);
+        customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+    }//GEN-LAST:event_btnDeleteCustomerActionPerformed
+
+    private void btnClean1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClean1ActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+    }//GEN-LAST:event_btnClean1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
