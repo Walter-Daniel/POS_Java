@@ -14,6 +14,7 @@ View\PrincipalMenu$2.class
 View\PrincipalMenu$1.class
 View\PrincipalMenu$10.class
 View\formCustomers$1.class
+View\formProduct$1.class
 View\FormSales.class
 View\PrincipalMenu$8.class
 View\FormFindInvoice.class
@@ -21,6 +22,7 @@ View\PrincipalMenu$4.class
 Config\CConnection.class
 dev\purple\mypos\MyPOS.class
 Controller\CustomerController.class
+Controller\ProductController.class
 View\PrincipalMenu$3.class
 View\FormInvoiceDate.class
 View\formCustomers$4.class

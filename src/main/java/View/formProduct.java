@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package View;
 
-/**
- *
- * @author walle
- */
 public class formProduct extends javax.swing.JInternalFrame {
 
     /**
@@ -15,6 +7,8 @@ public class formProduct extends javax.swing.JInternalFrame {
      */
     public formProduct() {
         initComponents();
+        Controller.ProductController product = new Controller.ProductController();
+        product.showProducts(tbProducts);
     }
 
     /**
@@ -122,6 +116,11 @@ public class formProduct extends javax.swing.JInternalFrame {
         jLabel5.setText("Click para seleccionar");
 
         btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Modificar");
 
@@ -165,6 +164,12 @@ public class formProduct extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        Controller.ProductController product = new Controller.ProductController();
+        product.addProduct(txtNameProduct, txtPriceProduct, txtStockProduct);
+        product.showProducts(tbProducts);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
