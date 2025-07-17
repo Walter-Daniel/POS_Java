@@ -9,6 +9,7 @@ Model\ProductModel.class
 View\formCustomers.class
 View\PrincipalMenu$5.class
 View\PrincipalMenu.class
+View\formCustomers$5.class
 View\PrincipalMenu$2.class
 View\PrincipalMenu$1.class
 View\PrincipalMenu$10.class
@@ -22,4 +23,5 @@ dev\purple\mypos\MyPOS.class
 Controller\CustomerController.class
 View\PrincipalMenu$3.class
 View\FormInvoiceDate.class
+View\formCustomers$4.class
 View\PrincipalMenu$6.class

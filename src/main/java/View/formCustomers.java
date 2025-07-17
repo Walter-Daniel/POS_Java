@@ -181,6 +181,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         jLabel9.setText("DNI:");
 
         btnClean1.setText("Limpiar Campos");
+        btnClean1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClean1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -258,6 +263,11 @@ public class formCustomers extends javax.swing.JInternalFrame {
         });
 
         btnDeleteCustomer.setText("Eliminar");
+        btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCustomerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,6 +336,18 @@ public class formCustomers extends javax.swing.JInternalFrame {
         customer.showCustomers(tbCustomers);
         customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
     }//GEN-LAST:event_btnUpdateCustomerActionPerformed
+
+    private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.deleteCustomer(txtIdCustomer);
+        customer.showCustomers(tbCustomers);
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+    }//GEN-LAST:event_btnDeleteCustomerActionPerformed
+
+    private void btnClean1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClean1ActionPerformed
+        Controller.CustomerController customer = new Controller.CustomerController();
+        customer.cleanFields(txtIdCustomer, txtNameCustomer, txtLastNameCustomer, txtDNICustomer);
+    }//GEN-LAST:event_btnClean1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

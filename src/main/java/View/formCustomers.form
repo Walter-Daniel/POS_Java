@@ -355,6 +355,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpiar Campos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClean1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -400,6 +403,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteCustomerActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
