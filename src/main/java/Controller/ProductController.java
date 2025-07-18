@@ -140,7 +140,7 @@ public class ProductController {
     
       // DELETE CUSTOMER
     
-    public void deleteCustomer(JTextField id){
+    public void deleteProduct(JTextField id){
         Config.CConnection connection = new Config.CConnection();
         Model.ProductModel product = new Model.ProductModel();
         String sql = "DELETE FROM product WHERE product.idProduct=?";
