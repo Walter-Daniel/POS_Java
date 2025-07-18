@@ -9,6 +9,7 @@ public class formProduct extends javax.swing.JInternalFrame {
         initComponents();
         Controller.ProductController product = new Controller.ProductController();
         product.showProducts(tbProducts);
+        txtIdProduct.setEditable(false);
     }
 
     /**
@@ -53,6 +54,11 @@ public class formProduct extends javax.swing.JInternalFrame {
         jLabel4.setText("Stock:");
 
         btnClean.setText("Limpiar Campos");
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,6 +141,11 @@ public class formProduct extends javax.swing.JInternalFrame {
         });
 
         btnDelete.setText("Eliminar");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,6 +189,7 @@ public class formProduct extends javax.swing.JInternalFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Controller.ProductController product = new Controller.ProductController();
         product.addProduct(txtNameProduct, txtPriceProduct, txtStockProduct);
+        product.cleanFields(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
         product.showProducts(tbProducts);
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -193,6 +205,18 @@ public class formProduct extends javax.swing.JInternalFrame {
          product.cleanFields(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
          product.showProducts(tbProducts);
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+         Controller.ProductController product = new Controller.ProductController();
+         product.deleteProduct(txtIdProduct);
+         product.cleanFields(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
+         product.showProducts(tbProducts);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+        Controller.ProductController product = new Controller.ProductController();
+        product.cleanFields(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
+    }//GEN-LAST:event_btnCleanActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
