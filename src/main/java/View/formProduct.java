@@ -111,6 +111,11 @@ public class formProduct extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProductsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbProducts);
 
         jLabel5.setText("Click para seleccionar");
@@ -123,6 +128,11 @@ public class formProduct extends javax.swing.JInternalFrame {
         });
 
         btnUpdate.setText("Modificar");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Eliminar");
 
@@ -170,6 +180,19 @@ public class formProduct extends javax.swing.JInternalFrame {
         product.addProduct(txtNameProduct, txtPriceProduct, txtStockProduct);
         product.showProducts(tbProducts);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void tbProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductsMouseClicked
+        Controller.ProductController product = new Controller.ProductController();
+        product.selectProduct(tbProducts, txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
+
+    }//GEN-LAST:event_tbProductsMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+         Controller.ProductController product = new Controller.ProductController();
+         product.updateProduct(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
+         product.cleanFields(txtIdProduct, txtNameProduct, txtPriceProduct, txtStockProduct);
+         product.showProducts(tbProducts);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

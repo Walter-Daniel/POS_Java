@@ -1,5 +1,6 @@
 View\PrincipalMenu$7.class
 Model\CustomerModel.class
+View\formProduct$2.class
 View\PrincipalMenu$9.class
 View\formCustomers$2.class
 View\PrincipalMenu$11.class
@@ -12,6 +13,7 @@ View\PrincipalMenu.class
 View\formCustomers$5.class
 View\PrincipalMenu$2.class
 View\PrincipalMenu$1.class
+View\formProduct$3.class
 View\PrincipalMenu$10.class
 View\formCustomers$1.class
 View\formProduct$1.class
