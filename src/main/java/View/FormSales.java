@@ -239,6 +239,18 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Buscador");
 
+        txtFindProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFindProductKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFindProductKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFindProductKeyTyped(evt);
+            }
+        });
+
         tbProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -605,6 +617,19 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtFindProductKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindProductKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFindProductKeyPressed
+
+    private void txtFindProductKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindProductKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFindProductKeyReleased
+
+    private void txtFindProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindProductKeyTyped
+        Controller.SalesController sales = new Controller.SalesController();
+        sales.findProduct(txtFindProduct, tbProduct);
+    }//GEN-LAST:event_txtFindProductKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

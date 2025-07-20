@@ -19,7 +19,7 @@ public class CConnection {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection(chain, user, password);
-            JOptionPane.showMessageDialog(null, "Conexión correcta a DB");
+            //JOptionPane.showMessageDialog(null, "Conexión correcta a DB");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error de conección a DB:" + e.toString());
         }
@@ -30,7 +30,7 @@ public class CConnection {
         try {
             if(connect != null && !connect.isClosed()){
                 connect.close();
-                JOptionPane.showMessageDialog(null, "Conexión cerrada");
+                //JOptionPane.showMessageDialog(null, "Conexión cerrada");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al cerrar conexión:" + e.toString());

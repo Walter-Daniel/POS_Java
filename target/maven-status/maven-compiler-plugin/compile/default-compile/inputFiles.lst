@@ -1,12 +1,13 @@
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Controller\CustomerController.java
-C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\dev\purple\mypos\MyPOS.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Model\ProductModel.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\formProduct.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Config\CConnection.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\FormFindInvoice.java
-C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\FormSales.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\PrincipalMenu.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\formCustomers.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Model\CustomerModel.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\FormInvoiceDate.java
 C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Controller\ProductController.java
+C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\dev\purple\mypos\MyPOS.java
+C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\View\FormSales.java
+C:\Users\walle\OneDrive\Documentos\NetBeansProjects\MyPOS\src\main\java\Controller\SalesController.java
