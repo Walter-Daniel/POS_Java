@@ -6,6 +6,7 @@ View\formCustomers$2.class
 View\PrincipalMenu$11.class
 View\formCustomers$3.class
 View\formProduct.class
+Controller\SalesController.class
 Model\ProductModel.class
 View\formCustomers.class
 View\PrincipalMenu$5.class
@@ -13,6 +14,7 @@ View\PrincipalMenu.class
 View\formCustomers$5.class
 View\PrincipalMenu$2.class
 View\formProduct$4.class
+View\FormSales$1.class
 View\PrincipalMenu$1.class
 View\formProduct$3.class
 View\PrincipalMenu$10.class
