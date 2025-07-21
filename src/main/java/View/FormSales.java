@@ -69,7 +69,7 @@ public class FormSales extends javax.swing.JInternalFrame {
         txtSStock = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        txtSalePrice = new javax.swing.JTextField();
+        txtTotalPrice = new javax.swing.JTextField();
         btnEnabled = new javax.swing.JButton();
         btnDisabled = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -121,6 +121,12 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Buscador");
 
+        txtFindCustomer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFindCustomerKeyTyped(evt);
+            }
+        });
+
         tbCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -132,6 +138,11 @@ public class FormSales extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbCustomerMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbCustomer);
 
         jLabel2.setText("Click para seleccionar");
@@ -262,6 +273,11 @@ public class FormSales extends javax.swing.JInternalFrame {
 
             }
         ));
+        tbProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProductMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tbProduct);
 
         jLabel6.setText("Click para seleccionar");
@@ -427,7 +443,7 @@ public class FormSales extends javax.swing.JInternalFrame {
                             .addComponent(jLabel15))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSalePrice, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(txtTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(txtSaleQuantity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEnabled, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -443,7 +459,7 @@ public class FormSales extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtSalePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEnabled)
                     .addComponent(btnDisabled))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -631,6 +647,21 @@ public class FormSales extends javax.swing.JInternalFrame {
         sales.findProduct(txtFindProduct, tbProduct);
     }//GEN-LAST:event_txtFindProductKeyTyped
 
+    private void tbProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductMouseClicked
+        Controller.SalesController sales = new Controller.SalesController();
+        sales.selectProductSales(tbProduct, txtSIdProduct, txtSName, txtSPrice, txtSStock, txtTotalPrice);
+    }//GEN-LAST:event_tbProductMouseClicked
+
+    private void txtFindCustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindCustomerKeyTyped
+        Controller.SalesController sales = new Controller.SalesController();
+        sales.findCustomer(txtFindCustomer, tbCustomer);
+    }//GEN-LAST:event_txtFindCustomerKeyTyped
+
+    private void tbCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCustomerMouseClicked
+      Controller.SalesController sales = new Controller.SalesController();
+      sales.selectCustomer(tbCustomer, txtSIdCustomer, txtSFirstName, txtSLastName, txtSDNI);
+    }//GEN-LAST:event_tbCustomerMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckout;
@@ -692,7 +723,7 @@ public class FormSales extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtSName;
     private javax.swing.JTextField txtSPrice;
     private javax.swing.JTextField txtSStock;
-    private javax.swing.JTextField txtSalePrice;
     private javax.swing.JTextField txtSaleQuantity;
+    private javax.swing.JTextField txtTotalPrice;
     // End of variables declaration//GEN-END:variables
 }

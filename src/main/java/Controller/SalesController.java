@@ -56,4 +56,88 @@ public class SalesController {
         
     }
     
+    public void selectProductSales(JTable productTable, JTextField id, JTextField productName, JTextField productPrice, JTextField stock, JTextField totalPrice){
+     
+        int row = productTable.getSelectedRow();
+        
+        try {
+            
+            if(row >= 0){
+                id.setText(productTable.getValueAt(row, 0).toString());
+                productName.setText(productTable.getValueAt(row, 1).toString());
+                productPrice.setText(productTable.getValueAt(row, 2).toString());
+                stock.setText(productTable.getValueAt(row, 3).toString());
+                totalPrice.setText(productTable.getValueAt(row, 2).toString());
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+        }
+    }
+    
+    public void findCustomer(JTextField customerName, JTable customerTable){
+        
+        Config.CConnection connection = new Config.CConnection();
+        Model.CustomerModel customer = new Model.CustomerModel();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("id");
+        model.addColumn("Nombre");
+        model.addColumn("Apellido");
+        model.addColumn("D.N.I.");
+        
+        customerTable.setModel(model);
+        
+        try {
+            String sql = "SELECT * FROM customer WHERE customer.firstName like concat('%',?,'%')";
+            PreparedStatement ps = connection.connection().prepareStatement(sql);
+            ps.setString(1, customerName.getText());
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                customer.setIdCustomer(rs.getInt("idCustomer"));
+                customer.setFirstName(rs.getString("firstName"));
+                customer.setLastName(rs.getString("lastName"));
+                customer.setDNI(rs.getString("dni"));
+                
+                model.addRow(new Object[]{
+                    customer.getIdCustomer(),
+                    customer.getFirstName(),
+                    customer.getLastName(),
+                    customer.getDNI()
+                });
+            }
+            
+           customerTable.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error al mostrar cliente" + e.toString());
+        } finally {
+            connection.disconnect();
+        }
+        
+        for(int column = 0; column < customerTable.getColumnCount(); column++){
+            Class<?> columnClass = customerTable.getColumnClass(column);
+            customerTable.setDefaultEditor(columnClass, null);
+        }
+        
+    }
+    
+        public void selectCustomer(JTable customerTable, JTextField id, JTextField firstName, JTextField lastName, JTextField dni){
+     
+        int row = customerTable.getSelectedRow();
+        
+        try {
+            
+            if(row >= 0){
+                id.setText(customerTable.getValueAt(row, 0).toString());
+                firstName.setText(customerTable.getValueAt(row, 1).toString());
+                lastName.setText(customerTable.getValueAt(row, 2).toString());
+                dni.setText(customerTable.getValueAt(row, 3).toString());
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+        }
+    }
+    
 }

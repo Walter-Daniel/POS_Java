@@ -163,6 +163,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFindCustomer">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFindCustomerKeyTyped"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>
@@ -183,6 +186,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbCustomerMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -383,6 +389,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbProductMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -633,7 +642,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtSalePrice" pref="83" max="32767" attributes="0"/>
+                                  <Component id="txtTotalPrice" pref="83" max="32767" attributes="0"/>
                                   <Component id="txtSaleQuantity" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -654,7 +663,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtSalePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTotalPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEnabled" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDisabled" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -676,7 +685,7 @@
                 <Property name="text" type="java.lang.String" value="Precio de venta"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtSalePrice">
+            <Component class="javax.swing.JTextField" name="txtTotalPrice">
             </Component>
             <Component class="javax.swing.JButton" name="btnEnabled">
               <Properties>
