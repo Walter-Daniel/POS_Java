@@ -124,20 +124,55 @@ public class SalesController {
     
         public void selectCustomer(JTable customerTable, JTextField id, JTextField firstName, JTextField lastName, JTextField dni){
      
-        int row = customerTable.getSelectedRow();
+            int row = customerTable.getSelectedRow();
+
+            try {
+
+                if(row >= 0){
+                    id.setText(customerTable.getValueAt(row, 0).toString());
+                    firstName.setText(customerTable.getValueAt(row, 1).toString());
+                    lastName.setText(customerTable.getValueAt(row, 2).toString());
+                    dni.setText(customerTable.getValueAt(row, 3).toString());
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+            }
+        }
         
-        try {
+        public void showLastInvoice(JTable invoiceTable, JTextField productId, JTextField productName, JTextField productPrice, JTextField quantity, JTextField stock) {
+            DefaultTableModel model = (DefaultTableModel) invoiceTable.getModel();
+            int stockAvailable = Integer.parseInt(stock.getText());
+            String productInvoiceId = productId.getText();
             
-            if(row >= 0){
-                id.setText(customerTable.getValueAt(row, 0).toString());
-                firstName.setText(customerTable.getValueAt(row, 1).toString());
-                lastName.setText(customerTable.getValueAt(row, 2).toString());
-                dni.setText(customerTable.getValueAt(row, 3).toString());
+            for(int i = 0; i < model.getRowCount(); i++){
+                String id = (String) model.getValueAt(i, 0);
+                if(id.equals(productInvoiceId)){
+                    JOptionPane.showMessageDialog(null, "El productp ya se encuentra registrado.");
+                    return;
+                }
             }
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+            String productInvoiceName = productName.getText();
+            double productInvoicePrice = Double.parseDouble(productPrice.getText());
+            int quantityProduct = Integer.parseInt(quantity.getText());
+            
+            if(quantityProduct > stockAvailable) {
+                JOptionPane.showConfirmDialog(null, "La cantidad de venta no puede ser mayo al stock disponible");
+                return;
+            }
+            
+            double subTotal = productInvoicePrice * quantityProduct;
+            model.addRow(new Object[]{
+                productId,
+                productInvoiceName,
+                productInvoicePrice,
+                quantity.getText(),
+                subTotal
+            });
+            
+            
         }
-    }
+        
     
 }

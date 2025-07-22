@@ -15,6 +15,16 @@ public class FormSales extends javax.swing.JInternalFrame {
      */
     public FormSales() {
         initComponents();
+        txtSIdCustomer.setEnabled(false);
+        txtSFirstName.setEnabled(false);
+        txtSLastName.setEnabled(false);
+        txtSDNI.setEnabled(false);
+        
+        txtSIdProduct.setEnabled(false);
+        txtSName.setEnabled(false);
+        txtSPrice.setEnabled(false);
+        txtSStock.setEnabled(false);
+        txtTotalPrice.setEnabled(false);
     }
 
     /**
@@ -325,6 +335,14 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel10.setText("DNI:");
 
+        txtSIdCustomer.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSFirstName.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSLastName.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSDNI.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -376,6 +394,14 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Stock:");
 
+        txtSIdProduct.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSName.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSPrice.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
+        txtSStock.setDisabledTextColor(new java.awt.Color(0, 153, 0));
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -421,14 +447,24 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Precio de venta");
 
+        txtTotalPrice.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTotalPrice.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+
         btnEnabled.setText("Habilitar");
 
         btnDisabled.setText("Deshabilitar");
 
         jLabel16.setText("Cantidad de Venta");
 
+        txtSaleQuantity.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+
         btnSaveProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSaveProduct.setText("Agregar Producto");
+        btnSaveProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveProductActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -510,10 +546,7 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         tbInvoice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID Producto", "Nombre Producto", "Precio Producto", "Cantidad Producto", "Subtotal"
@@ -661,6 +694,11 @@ public class FormSales extends javax.swing.JInternalFrame {
       Controller.SalesController sales = new Controller.SalesController();
       sales.selectCustomer(tbCustomer, txtSIdCustomer, txtSFirstName, txtSLastName, txtSDNI);
     }//GEN-LAST:event_tbCustomerMouseClicked
+
+    private void btnSaveProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProductActionPerformed
+      Controller.SalesController sales = new Controller.SalesController();
+      sales.showLastInvoice(tbInvoice, txtSIdProduct, txtSName, txtSPrice, txtSaleQuantity, txtSStock);
+    }//GEN-LAST:event_btnSaveProductActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
