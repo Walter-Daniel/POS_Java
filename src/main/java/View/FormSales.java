@@ -543,6 +543,11 @@ public class FormSales extends javax.swing.JInternalFrame {
         jLabel19.setText("Selecciona para Eliminar");
 
         btnDeleteInvoice.setText("Eliminar");
+        btnDeleteInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteInvoiceActionPerformed(evt);
+            }
+        });
 
         tbInvoice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -697,8 +702,15 @@ public class FormSales extends javax.swing.JInternalFrame {
 
     private void btnSaveProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProductActionPerformed
       Controller.SalesController sales = new Controller.SalesController();
-      sales.showLastInvoice(tbInvoice, txtSIdProduct, txtSName, txtSPrice, txtSaleQuantity, txtSStock);
+      sales.showInvoice(tbInvoice, txtSIdProduct, txtSName, txtSPrice, txtSaleQuantity, txtSStock);
+      sales.calculateTotalAmount(tbInvoice, lblIVA, lblTotal);
     }//GEN-LAST:event_btnSaveProductActionPerformed
+
+    private void btnDeleteInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteInvoiceActionPerformed
+      Controller.SalesController sales = new Controller.SalesController();
+      sales.deleteProductInInvoice(tbInvoice);
+      sales.calculateTotalAmount(tbInvoice, lblIVA, lblTotal);
+    }//GEN-LAST:event_btnDeleteInvoiceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
