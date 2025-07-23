@@ -2,6 +2,8 @@ package Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -124,20 +126,102 @@ public class SalesController {
     
         public void selectCustomer(JTable customerTable, JTextField id, JTextField firstName, JTextField lastName, JTextField dni){
      
-        int row = customerTable.getSelectedRow();
+            int row = customerTable.getSelectedRow();
+
+            try {
+
+                if(row >= 0){
+                    id.setText(customerTable.getValueAt(row, 0).toString());
+                    firstName.setText(customerTable.getValueAt(row, 1).toString());
+                    lastName.setText(customerTable.getValueAt(row, 2).toString());
+                    dni.setText(customerTable.getValueAt(row, 3).toString());
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+            }
+        }
         
-        try {
+        public void showInvoice(JTable invoiceTable, JTextField productId, JTextField productName, JTextField productPrice, JTextField quantity, JTextField stock) {
+            DefaultTableModel model = (DefaultTableModel) invoiceTable.getModel();
+            int stockAvailable = Integer.parseInt(stock.getText());
+            String productInvoiceId = productId.getText();
             
-            if(row >= 0){
-                id.setText(customerTable.getValueAt(row, 0).toString());
-                firstName.setText(customerTable.getValueAt(row, 1).toString());
-                lastName.setText(customerTable.getValueAt(row, 2).toString());
-                dni.setText(customerTable.getValueAt(row, 3).toString());
+            for(int i = 0; i < model.getRowCount(); i++){
+                String id = (String) model.getValueAt(i, 0);
+                if(id.equals(productInvoiceId)){
+                    JOptionPane.showMessageDialog(null, "El productp ya se encuentra registrado.");
+                    return;
+                }
             }
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e.toString());
+            String productInvoiceName = productName.getText();
+            double productInvoicePrice = Double.parseDouble(productPrice.getText());
+            int quantityProduct = Integer.parseInt(quantity.getText());
+            
+            if(quantityProduct > stockAvailable) {
+                JOptionPane.showMessageDialog(null, "La cantidad de venta no puede ser mayo al stock disponible");
+                return;
+            }
+            
+            double subTotal = productInvoicePrice * quantityProduct;
+            model.addRow(new Object[]{
+                productInvoiceId,
+                productInvoiceName,
+                productInvoicePrice,
+                quantity.getText(),
+                subTotal
+            });
         }
-    }
+        
+        public void deleteProductInInvoice(JTable invoiceTable){
+            
+            DefaultTableModel model = (DefaultTableModel) invoiceTable.getModel();
+            int indexSelected = invoiceTable.getSelectedRow();
+            
+            try {
+                 if(indexSelected != -1){
+                model.removeRow(indexSelected);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila para eliminar");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al seleccionar: " + e);
+            }
+            
+            
+        }
+        
+       public void calculateTotalAmount(JTable invoiceTable, JLabel ivaLabel, JLabel totalAmountLabel) {
+            DefaultTableModel model = (DefaultTableModel) invoiceTable.getModel();
+
+            double subTotal = 0.0;
+            double ivaRate = 0.18;
+
+            // Sumar subtotales 
+            for (int i = 0; i < model.getRowCount(); i++) {
+                Object value = model.getValueAt(i, 4);
+                if (value instanceof Number) {
+                    subTotal += ((Number) value).doubleValue();
+                } else {
+                    try {
+                        subTotal += Double.parseDouble(value.toString());
+                    } catch (NumberFormatException e) {
+                        System.err.println("Valor inválido en fila " + i + ": " + value);
+                    }
+                }
+            }
+
+            double ivaAmount = subTotal * ivaRate;
+            double total = subTotal + ivaAmount;
+
+            // Formatear para mostrar
+            DecimalFormat formatter = new DecimalFormat("#.##");
+
+            totalAmountLabel.setText(formatter.format(total));
+            ivaLabel.setText(formatter.format(ivaAmount));
+        }
+
+        
     
 }
