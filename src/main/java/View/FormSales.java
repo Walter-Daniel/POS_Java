@@ -573,6 +573,11 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         btnCheckout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCheckout.setText("Cobrar");
+        btnCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -711,6 +716,12 @@ public class FormSales extends javax.swing.JInternalFrame {
       sales.deleteProductInInvoice(tbInvoice);
       sales.calculateTotalAmount(tbInvoice, lblIVA, lblTotal);
     }//GEN-LAST:event_btnDeleteInvoiceActionPerformed
+
+    private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
+       Controller.SalesController sales = new Controller.SalesController();
+       sales.createInvoice(txtSIdCustomer);
+       sales.makeSale(tbInvoice);
+    }//GEN-LAST:event_btnCheckoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

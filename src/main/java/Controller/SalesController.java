@@ -1,5 +1,7 @@
 package Controller;
 
+
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
@@ -222,6 +224,60 @@ public class SalesController {
             ivaLabel.setText(formatter.format(ivaAmount));
         }
 
-        
+        public void createInvoice(JTextField idCustomer){
+            Config.CConnection connection = new Config.CConnection();
+            Model.CustomerModel customer = new Model.CustomerModel();
+            
+            String sql = "INSERT INTO invoice (invoiceDate, idCustomer) VALUES (curdate(),?);";
+            
+            try {
+                customer.setIdCustomer(Integer.parseInt(idCustomer.getText()));
+                CallableStatement cs = connection.connection().prepareCall(sql);
+                cs.setInt(1, customer.getIdCustomer());
+                cs.execute();
+                
+                JOptionPane.showMessageDialog(null, "Factura creada");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al intentar crear la factura" + e.toString());
+            } finally {
+                connection.disconnect();
+            }
+        }
     
+        public void makeSale(JTable invoiceTable){
+              Config.CConnection connection = new Config.CConnection();
+              
+              String sql = "INSERT INTO invoiceDetail (idInvoice, idProduct, quantity, price) VALUES ((SELECT MAX(idInvoice) FROM invoice),?,?,?);";
+              String updateStockSQL = "UPDATE product SET product.stock = stock - ? WHERE idProduct = ?;";
+              
+              
+              try {
+                  
+                  PreparedStatement psDetail = connection.connection().prepareStatement(sql);
+                  PreparedStatement psStock = connection.connection().prepareStatement(updateStockSQL);
+
+                  int row = invoiceTable.getRowCount();
+                  
+                  for(int i = 0; i<row; i++){
+                      int productId = Integer.parseInt(invoiceTable.getValueAt(i, 0).toString());
+                      int quantity = Integer.parseInt(invoiceTable.getValueAt(i, 3).toString());
+                      double totalPrice = Double.parseDouble(invoiceTable.getValueAt(i, 2).toString());
+                      
+                      psDetail.setInt(1, productId);
+                      psDetail.setInt(2, quantity);
+                      psDetail.setDouble(3, totalPrice);
+                      psDetail.executeUpdate();
+                      
+                      psStock.setInt(1, quantity);
+                      psStock.setInt(2, productId);
+                      psStock.executeUpdate();
+                  }
+                  
+                  JOptionPane.showMessageDialog(null, "Se realizó con éxito la venta");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al realizar la venta" + e.toString());
+            } finally {
+                  connection.disconnect();
+            }
+        }
 }

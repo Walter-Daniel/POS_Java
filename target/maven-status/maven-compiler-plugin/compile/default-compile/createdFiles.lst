@@ -30,6 +30,7 @@ View\PrincipalMenu$4.class
 Config\CConnection.class
 dev\purple\mypos\MyPOS.class
 Controller\CustomerController.class
+View\FormSales$7.class
 Controller\ProductController.class
 View\FormSales$2.class
 View\PrincipalMenu$3.class
