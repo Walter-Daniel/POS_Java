@@ -280,4 +280,35 @@ public class SalesController {
                   connection.disconnect();
             }
         }
+        
+        public void cleanFields(JTextField findCustomer, JTable customerTable,JTextField findProduct, JTable productTable,
+                JTextField selectIdCustomer, JTextField selectCustomerFirstName, JTextField selectCustomerLastName, 
+                JTextField selectCustomerDni, JTextField selectProductId, JTextField selectProductName, JTextField selectProductPrice,
+                JTextField selectStock, JTextField selectTotalPrice,JTextField selectQuantity, JTable invoice, JLabel IVA, JLabel total){
+            
+            findCustomer.setText("");
+            findCustomer.requestFocus();
+            DefaultTableModel customerModel = (DefaultTableModel) customerTable.getModel();
+            customerModel.setRowCount(0);
+            
+            findProduct.setText("");
+            DefaultTableModel productModel = (DefaultTableModel) productTable.getModel();
+            productModel.setRowCount(0);
+            
+            selectIdCustomer.setText("");
+            selectCustomerFirstName.setText("");
+            selectCustomerLastName.setText("");
+            selectCustomerDni.setText("");
+            
+            selectProductId.setText("");
+            selectProductName.setText("");
+            selectProductPrice.setText("");
+            selectStock.setText("");
+            
+            total.setText("");
+            total.setEnabled(false);
+            
+            selectQuantity.setText("");
+            
+        } 
 }
