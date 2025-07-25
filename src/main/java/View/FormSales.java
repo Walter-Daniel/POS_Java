@@ -24,7 +24,7 @@ public class FormSales extends javax.swing.JInternalFrame {
         txtSName.setEnabled(false);
         txtSPrice.setEnabled(false);
         txtSStock.setEnabled(false);
-        txtTotalPrice.setEnabled(false);
+        txtSalePrice.setEnabled(false);
     }
 
     /**
@@ -79,7 +79,7 @@ public class FormSales extends javax.swing.JInternalFrame {
         txtSStock = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        txtTotalPrice = new javax.swing.JTextField();
+        txtSalePrice = new javax.swing.JTextField();
         btnEnabled = new javax.swing.JButton();
         btnDisabled = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -447,12 +447,22 @@ public class FormSales extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Precio de venta");
 
-        txtTotalPrice.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtTotalPrice.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txtSalePrice.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtSalePrice.setDisabledTextColor(new java.awt.Color(153, 153, 153));
 
         btnEnabled.setText("Habilitar");
+        btnEnabled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnabledActionPerformed(evt);
+            }
+        });
 
         btnDisabled.setText("Deshabilitar");
+        btnDisabled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisabledActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("Cantidad de Venta");
 
@@ -479,7 +489,7 @@ public class FormSales extends javax.swing.JInternalFrame {
                             .addComponent(jLabel15))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(txtSalePrice, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(txtSaleQuantity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEnabled, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -495,7 +505,7 @@ public class FormSales extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEnabled)
                     .addComponent(btnDisabled))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -692,7 +702,7 @@ public class FormSales extends javax.swing.JInternalFrame {
 
     private void tbProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductMouseClicked
         Controller.SalesController sales = new Controller.SalesController();
-        sales.selectProductSales(tbProduct, txtSIdProduct, txtSName, txtSPrice, txtSStock, txtTotalPrice);
+        sales.selectProductSales(tbProduct, txtSIdProduct, txtSName, txtSPrice, txtSStock, txtSalePrice);
     }//GEN-LAST:event_tbProductMouseClicked
 
     private void txtFindCustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFindCustomerKeyTyped
@@ -707,7 +717,7 @@ public class FormSales extends javax.swing.JInternalFrame {
 
     private void btnSaveProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProductActionPerformed
       Controller.SalesController sales = new Controller.SalesController();
-      sales.showInvoice(tbInvoice, txtSIdProduct, txtSName, txtSPrice, txtSaleQuantity, txtSStock);
+      sales.showInvoice(tbInvoice, txtSIdProduct, txtSName, txtSalePrice, txtSaleQuantity, txtSStock);
       sales.calculateTotalAmount(tbInvoice, lblIVA, lblTotal);
     }//GEN-LAST:event_btnSaveProductActionPerformed
 
@@ -722,6 +732,14 @@ public class FormSales extends javax.swing.JInternalFrame {
        sales.createInvoice(txtSIdCustomer);
        sales.makeSale(tbInvoice);
     }//GEN-LAST:event_btnCheckoutActionPerformed
+
+    private void btnEnabledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnabledActionPerformed
+        txtSalePrice.setEnabled(true);
+    }//GEN-LAST:event_btnEnabledActionPerformed
+
+    private void btnDisabledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisabledActionPerformed
+        txtSalePrice.setEnabled(false);
+    }//GEN-LAST:event_btnDisabledActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -784,7 +802,7 @@ public class FormSales extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtSName;
     private javax.swing.JTextField txtSPrice;
     private javax.swing.JTextField txtSStock;
+    private javax.swing.JTextField txtSalePrice;
     private javax.swing.JTextField txtSaleQuantity;
-    private javax.swing.JTextField txtTotalPrice;
     // End of variables declaration//GEN-END:variables
 }
