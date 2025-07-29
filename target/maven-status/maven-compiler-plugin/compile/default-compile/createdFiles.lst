@@ -32,12 +32,14 @@ View\PrincipalMenu$4.class
 Config\CConnection.class
 dev\purple\mypos\MyPOS.class
 Controller\CustomerController.class
+Controller\InvoiceController.class
 View\FormSales$7.class
 Controller\ProductController.class
 View\FormSales$2.class
 View\PrincipalMenu$3.class
 View\formProduct$5.class
 View\FormInvoiceDate.class
+View\FormFindInvoice$1.class
 View\FormSales$5.class
 View\formCustomers$4.class
 View\PrincipalMenu$6.class
