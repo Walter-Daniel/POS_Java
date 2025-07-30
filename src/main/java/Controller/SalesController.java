@@ -286,29 +286,53 @@ public class SalesController {
                 JTextField selectCustomerDni, JTextField selectProductId, JTextField selectProductName, JTextField selectProductPrice,
                 JTextField selectStock, JTextField selectTotalPrice,JTextField selectQuantity, JTable invoice, JLabel IVA, JLabel total){
             
-            findCustomer.setText("");
-            findCustomer.requestFocus();
-            DefaultTableModel customerModel = (DefaultTableModel) customerTable.getModel();
-            customerModel.setRowCount(0);
-            
-            findProduct.setText("");
-            DefaultTableModel productModel = (DefaultTableModel) productTable.getModel();
-            productModel.setRowCount(0);
-            
-            selectIdCustomer.setText("");
-            selectCustomerFirstName.setText("");
-            selectCustomerLastName.setText("");
-            selectCustomerDni.setText("");
-            
-            selectProductId.setText("");
-            selectProductName.setText("");
-            selectProductPrice.setText("");
-            selectStock.setText("");
-            
-            total.setText("");
-            total.setEnabled(false);
-            
-            selectQuantity.setText("");
+                findCustomer.setText("");
+                findCustomer.requestFocus();
+                DefaultTableModel customerModel = (DefaultTableModel) customerTable.getModel();
+                customerModel.setRowCount(0);
+
+                findProduct.setText("");
+                DefaultTableModel productModel = (DefaultTableModel) productTable.getModel();
+                productModel.setRowCount(0);
+
+                selectIdCustomer.setText("");
+                selectCustomerFirstName.setText("");
+                selectCustomerLastName.setText("");
+                selectCustomerDni.setText("");
+
+                selectProductId.setText("");
+                selectProductName.setText("");
+                selectProductPrice.setText("");
+                selectStock.setText("");
+                selectTotalPrice.setText("");
+
+                total.setText("");
+                total.setEnabled(false);
+
+                selectQuantity.setText("");
+                
+                DefaultTableModel invoiceModel = (DefaultTableModel) productTable.getModel();
+                invoiceModel.setRowCount(0);
+                
+                IVA.setText("");
+                total.setText("");
             
         } 
+        
+        public void showLastInvoiceNumber(JLabel lastInvoice) {
+            Config.CConnection connection = new Config.CConnection();
+            
+            try {
+                String sql = "SELECT MAX(idInvoice) as lastInvoice FROM invoice";
+                PreparedStatement ps = connection.connection().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()){
+                    lastInvoice.setText(String.valueOf(rs.getInt("lastInvoice")));
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al mostrar el número de factura creada" + e.toString());
+            } finally {
+                connection.disconnect();
+            }
+        }
 }

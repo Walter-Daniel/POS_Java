@@ -25,6 +25,9 @@ public class FormSales extends javax.swing.JInternalFrame {
         txtSPrice.setEnabled(false);
         txtSStock.setEnabled(false);
         txtSalePrice.setEnabled(false);
+        
+        Controller.SalesController sales = new Controller.SalesController();
+        sales.showLastInvoiceNumber(lblLastInvoiceCreated);
     }
 
     /**
@@ -731,6 +734,10 @@ public class FormSales extends javax.swing.JInternalFrame {
        Controller.SalesController sales = new Controller.SalesController();
        sales.createInvoice(txtSIdCustomer);
        sales.makeSale(tbInvoice);
+       sales.cleanFields(txtFindCustomer, tbCustomer, txtFindProduct, tbProduct,
+               txtSIdCustomer, txtSFirstName, txtSLastName, txtSDNI, txtSIdProduct,
+               txtSName, txtSPrice, txtSStock, txtSalePrice, txtSaleQuantity, tbInvoice, lblIVA, lblTotal);
+       sales.showLastInvoiceNumber(lblLastInvoiceCreated);
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
     private void btnEnabledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnabledActionPerformed

@@ -55,6 +55,11 @@ public class FormFindInvoice extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Número de Factura"));
 
         btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,6 +239,12 @@ public class FormFindInvoice extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        Controller.InvoiceController invoice = new Controller.InvoiceController();
+        invoice.FindInvoice(txtInvoiceNumber, lblInvoice, lblInvoiceDate, lblFirstNameCustomer, lblLastNameCustomer, lblDNI);
+        invoice.findInvoiceDetail(txtInvoiceNumber, tbProducts, lblIVA, lblTotal);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
