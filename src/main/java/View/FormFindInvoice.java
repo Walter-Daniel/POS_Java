@@ -243,6 +243,7 @@ public class FormFindInvoice extends javax.swing.JInternalFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         Controller.InvoiceController invoice = new Controller.InvoiceController();
         invoice.FindInvoice(txtInvoiceNumber, lblInvoice, lblInvoiceDate, lblFirstNameCustomer, lblLastNameCustomer, lblDNI);
+        invoice.findInvoiceDetail(txtInvoiceNumber, tbProducts, lblIVA, lblTotal);
     }//GEN-LAST:event_btnSearchActionPerformed
 
 
