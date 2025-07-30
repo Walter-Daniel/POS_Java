@@ -304,6 +304,7 @@ public class SalesController {
                 selectProductName.setText("");
                 selectProductPrice.setText("");
                 selectStock.setText("");
+                selectTotalPrice.setText("");
 
                 total.setText("");
                 total.setEnabled(false);
@@ -317,4 +318,21 @@ public class SalesController {
                 total.setText("");
             
         } 
+        
+        public void showLastInvoiceNumber(JLabel lastInvoice) {
+            Config.CConnection connection = new Config.CConnection();
+            
+            try {
+                String sql = "SELECT MAX(idInvoice) as lastInvoice FROM invoice";
+                PreparedStatement ps = connection.connection().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()){
+                    lastInvoice.setText(String.valueOf(rs.getInt("lastInvoice")));
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al mostrar el número de factura creada" + e.toString());
+            } finally {
+                connection.disconnect();
+            }
+        }
 }
